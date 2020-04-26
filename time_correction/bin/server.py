@@ -24,12 +24,20 @@ async def hello(request):
 
 async def get_result(request):
     # reading request
-    lat = request.rel_url.query['lat']
-    lng = request.rel_url.query['lng']
 
+    main_id_locality = request.rel_url.query['main_id_locality']
+    lat_s = request.rel_url.query['lat_s']
+    lon_s = request.rel_url.query['lon_s']
+    lat_f = request.rel_url.query['lat_f']
+    lon_f = request.rel_url.query['lon_f']
+    center_lat = request.rel_url.query['center_lat']
+    center_lon = request.rel_url.query['center_lon']
+    eda = request.rel_url.query['eda']
+    eta = request.rel_url.query['eta']
+    dt_s = request.rel_url.query['dt_s']
     # Create the subprocess; redirect the standard output into a pipe.
     process = await asyncio.create_subprocess_exec(
-        sys.executable, root_dir + "/bin/predict.py", lat, lng,
+        sys.executable, root_dir + "/bin/predict.py", main_id_locality, lat_s, lon_s, lat_f, lon_f, center_lat, center_lon, eda, eta, dt_s,
         stdout=asyncio.subprocess.PIPE)
 
     # Read one line of output.
