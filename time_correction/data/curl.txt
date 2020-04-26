@@ -1,0 +1,1 @@
+curl -X GET "http://localhost:5000/predict?main_id_locality=338&lat_s=45.013191&lon_s=38.981220&lat_f=45.040108&lon_f=39.026086&center_lat=45.040235&center_lon=38.976080&eda=7.0&eta=1249.0&dt_s=2020-03-11%2020%3A43%3A49"
